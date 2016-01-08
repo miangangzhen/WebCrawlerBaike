@@ -5,7 +5,6 @@
 ####################
 import re
 import requests
-import pymysql.cursors
 import time
 from bs4 import BeautifulSoup
 
@@ -29,6 +28,7 @@ class webCrawlerBaiduBaike(object):
 		if res.url[:35] == "http://baike.baidu.com/search/none?":
 			for soup in self.findInSuggestList(word, soup):
 				yield soup
+				time.sleep(1)
 
 		# 直接进入词条
 		else:
